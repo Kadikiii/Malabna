@@ -29,8 +29,8 @@ class CourtSeeder extends Seeder
         ]);
         Court::create([
             'name' => 'ملعب فينيسيا',
-            'description' => 'فينيسيا',
-            'address' => 'شارع حلواني الفايدي',
+            'description' => 'شارع حلواني الفايدي',
+            'address' => 'فينيسيا',
             'price_per_hour' => 70.0,
             'image' => '',
         ]);

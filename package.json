@@ -21,6 +21,9 @@
     "dependencies": {
         "@headlessui/vue": "^1.7.22",
         "@heroicons/vue": "^2.1.4",
-        "flowbite": "^2.4.1"
+        "element-plus": "^2.7.6",
+        "flowbite": "^2.4.1",
+        "sweetalert2": "^11.6.13",
+        "vue-sweetalert2": "^5.0.11"
     }
 }

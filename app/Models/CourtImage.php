@@ -5,20 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Court extends Model
+class CourtImage extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'description',
-        'address',
-        'price_per_hour',
+        'court_id',
         'image',
     ];
-
-    public function court_images()
+    
+    public function Court()
     {
-        return $this->hasMany(CourtImage::class);
+        return $this->belongsTo(Court::class);
     }
 }
