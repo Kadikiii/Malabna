@@ -19,6 +19,21 @@ const court_images = ref([])
 
 const courtImages = ref([])
 
+const dialogImageUrl = ref('')
+
+const handleFileChange = (file) => {
+    courtImages.value.push(file)
+}
+
+const handlePictureCardPreview = (file) => {
+    dialogImageUrl.value = file.url
+    dialogVisible.value = true
+}
+
+const handleRemove = (file) => {
+    console.log(file)
+}
+
 //add court method
 const addCourt = async () => {
     const formData = new FormData();
@@ -26,6 +41,7 @@ const addCourt = async () => {
     formData.append('description', description.value);
     formData.append('address', address.value);
     formData.append('price_per_hour', price_per_hour.value);
+    formData.append('court_images', court_images.value);
 
     //append court images to the form Data
     for (const image of courtImages.value) {
@@ -33,19 +49,36 @@ const addCourt = async () => {
     }
 
     try {
-        await router.post('/courts/store', formData)
-        onSuccess: page => {
-            Swal.fire({
-                toast: true,
-                icon: 'success',
-                position: 'top-end',
-                showConfirmButton: false,
-                title: page.props.flash.success,
-            })
-        }
+        router.post('courts/store', formData, {
+            onSuccess: page => {
+                Swal.fire({
+                    toast: true,
+                    icon: 'success',
+                    position: 'center',
+                    showConfirmButton: false,
+                    title: page.props.flash.success,
+                })
+                dialogVisible.value = false
+                resetFormData();
+            },
+        })
+
     } catch (error) {
         console.log('error')
     }
+}
+
+//Images upload
+
+//Reset form data
+const resetFormData = () => {
+    id.value = '';
+    name.value = '';
+    description.value = '';
+    address.value = '';
+    price_per_hour.value = '';
+    court_images.value = [];
+    dialogImageUrl.value = '';
 }
 
 //open add modal
@@ -56,6 +89,14 @@ const openAddModal = () => {
 }
 const openEditModal = (court) => {
     console.log(court)
+    //update form data
+    id.value = court.id
+    name.value = court.name
+    description.value = court.description
+    address.value = court.address
+    price_per_hour.value = court.price_per_hour
+    courtImages.value = court.court_images
+
     editMode.value = true
     isAddCourt.value = false
     dialogVisible.value = true
@@ -107,7 +148,31 @@ const openEditModal = (court) => {
                                     placeholder="Your description here"></textarea>
                             </div>
                         </div>
-                        <button type="submit" @click="addCourt"
+
+                        <!--Multiple Images Upload-->
+                        <div class="grid md:gap-6">
+                            <div
+                                class="block  text-sm font-medium text-gray-900 white:text-dark relative z-0 w-full mb-6 mt-6 group">
+                                <el-upload v-model:file-list="courtImages" list-type="picture-card" multiple
+                                    :on-preview="handlePictureCardPreview" :on-change="handleFileChange"
+                                    :on-remove="handleRemove">
+                                    <el-icon>
+                                        <Plus />
+                                    </el-icon>
+                                </el-upload>
+                            </div>
+                        </div>
+                        <!--Multiple Images Upload Ends-->
+
+                        <!--List of Images for selected court-->
+
+                     
+
+                        <!--List of Images for selected court Ends-->
+
+
+
+                        <button type="submit"
                             class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-green-700 rounded-lg focus:green-4 focus:ring-green-200 white:focus:ring-green-900 hover:bg-green-800">
                             Submit
                         </button>
@@ -156,7 +221,6 @@ const openEditModal = (court) => {
                             class="flex items-center justify-center text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-small rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                             Add Court
                         </button>
-
                     </div>
                 </div>
                 <div class="overflow-x-auto">
@@ -182,7 +246,6 @@ const openEditModal = (court) => {
                                     <button @click="openEditModal(court)"
                                         class="font-small bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
                                         Edit</button>
-
                                     <button
                                         class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete
                                     </button>

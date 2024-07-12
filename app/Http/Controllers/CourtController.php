@@ -11,7 +11,7 @@ class CourtController extends Controller
 {
     public function index()
     {
-        $courts = court::get();
+        $courts = court::with('court_images')->get();
         return inertia('Admin/Courts/index', ['courts' => $courts]);
     }
 

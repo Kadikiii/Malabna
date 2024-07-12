@@ -11,10 +11,5 @@ class AdminController extends Controller
     {
         return inertia::render('Admin/dashboard');
     }
-
-    public function courts()
-    {
-        return 'ok';
-    }
 }
  

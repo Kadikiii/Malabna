@@ -26,6 +26,7 @@ createInertiaApp({
         app.use(ElementPlus)
         app.use(VueSweetalert2),
         window.Swal = app.config.globalProperties.$swal
+
         app.mount(el)
     },
     progress: {
