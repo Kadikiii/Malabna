@@ -14,7 +14,6 @@ class Court extends Model
         'description',
         'address',
         'price_per_hour',
-        'image',
     ];
 
     public function court_images()

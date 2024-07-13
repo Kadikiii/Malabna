@@ -14,7 +14,7 @@ class CourtImage extends Model
         'image',
     ];
     
-    public function Court()
+    public function court()
     {
         return $this->belongsTo(Court::class);
     }

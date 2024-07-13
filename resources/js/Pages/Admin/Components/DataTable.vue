@@ -17,11 +17,11 @@ const price_per_hour = ref('')
 const court_images = ref([])
 //end 
 
+//Images upload
 const courtImages = ref([])
-
 const dialogImageUrl = ref('')
-
 const handleFileChange = (file) => {
+    console.log(file)
     courtImages.value.push(file)
 }
 
@@ -68,7 +68,7 @@ const addCourt = async () => {
     }
 }
 
-//Images upload
+
 
 //Reset form data
 const resetFormData = () => {
@@ -83,12 +83,12 @@ const resetFormData = () => {
 
 //open add modal
 const openAddModal = () => {
+    resetFormData();
     isAddCourt.value = true
     dialogVisible.value = true
     editMode.value = false
 }
 const openEditModal = (court) => {
-    console.log(court)
     //update form data
     id.value = court.id
     name.value = court.name
@@ -112,7 +112,6 @@ const openEditModal = (court) => {
             <!-- Form Starts -->
             <section class="bg-dark white:bg-gray-900">
                 <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-                    <h2 class="mb-4 text-xl font-bold text-gray-900 white:text-dark">Add a new Court</h2>
                     <form @submit.prevent="addCourt()">
                         <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                             <div class="sm:col-span-2">
@@ -123,11 +122,9 @@ const openEditModal = (court) => {
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 white:placeholder-gray-400 white:text-white white:focus:ring-primary-500 dark:focus:border-primary-500"
                                     placeholder="Type Court name" required="">
                             </div>
-
                             <div class="w-full">
-                                <label for="price"
-                                    class="block mb-2 text-sm font-medium text-gray-900 white:text-dark">Price Per
-                                    Hour</label>
+                                <label for="price" class="block mb-2 text-sm font-medium text-gray-900 white:text-dark">
+                                    Price Per Hour</label>
                                 <input v-model="price_per_hour" type="number" name="price" id="price"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 white:placeholder-gray-400 white:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     placeholder="50 LYD" required="">
@@ -165,8 +162,13 @@ const openEditModal = (court) => {
                         <!--Multiple Images Upload Ends-->
 
                         <!--List of Images for selected court-->
-
-                     
+                        <div>
+                            <div v-for="cimage in courtImages" :key="cimage.id" class="relative">
+                                <img class="w-10 h-10 rounded-full" src="'/${cimage.image}" alt="">
+                                <span
+                                    class="bottom-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+                            </div>
+                        </div>
 
                         <!--List of Images for selected court Ends-->
 
@@ -184,11 +186,6 @@ const openEditModal = (court) => {
                 </div>
             </section>
             <!-- Form Ends -->
-            <template #footer>
-                <div class="dialog-footer">
-
-                </div>
-            </template>
         </el-dialog>
         <!-- Dialog Ends -->
 

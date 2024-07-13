@@ -19,6 +19,8 @@
         "vue": "^3.4.0"
     },
     "dependencies": {
+        "@fontsource/cairo": "^5.0.20",
+        "@fontsource/open-sans": "^5.0.28",
         "@headlessui/vue": "^1.7.22",
         "@heroicons/vue": "^2.1.4",
         "element-plus": "^2.7.6",

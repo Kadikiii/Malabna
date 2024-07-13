@@ -32,12 +32,12 @@ class CourtController extends Controller
                 $uniqueName = time() . '-' . Str::random(10) . '.' . $image->getClientOriginalExtension();
 
                 //Store the image in a public folder
-                $image->move('court_images' . $uniqueName);
+                $image->move("court_images/$uniqueName");
 
                 //Create a new court image record with the court_id and unique name
                 CourtImage::create([
                     'court_id' => $court->id,
-                    'image' => 'court_images/' . $uniqueName,
+                    'image' => "court_images/$uniqueName",
                 ]);
             }
         }
