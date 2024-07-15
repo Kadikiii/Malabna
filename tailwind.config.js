@@ -22,7 +22,7 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [forms , 'flowbite-typography'],
     }
 
 
