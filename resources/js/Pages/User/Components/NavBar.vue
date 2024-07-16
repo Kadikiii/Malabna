@@ -14,9 +14,12 @@ onMounted(() => {
     direction: rtl;
     text-align: right;
 }
+.font-cairo {
+    font-family: 'Cairo', sans-serif;
+  }
 </style>
 <template>
-    <nav class="border-white-200 bg-white-50 white:bg-white-800 white:border-white-700">
+    <nav class="font-cairo border-white-200 bg-white-50 white:bg-white-800 white:border-white-700">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <Link :href="route('user.home')" method="get" as="button"
                 class="group-hover:text-gray-900 flex items-center justify-between mr-4">
@@ -68,20 +71,20 @@ onMounted(() => {
                 <ul
                     class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent white:bg-gray-800 md:white:bg-transparent white:border-gray-700">
                     <li>
-                        <a href="#"
-                            class="mt-2 rtl block py-2 px-3 md:p-0 text-gray-900 rounded  md:bg-transparent md:text-green-700 md:white:text-green-500 white:bg-green-600 md:white:bg-transparent"
+                        <a :href="route('user.home')"
+                            class=" mt-3  rtl block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 white:text-white md:white:hover:text-green-500 white:hover:bg-gray-700 white:hover:text-white md:white:hover:bg-transparent"
                             aria-current="page">الصفحة الرئيسية</a>
                     </li>
                     <li>
                         <a href="#"
-                        class=" mt-2 rtl block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 white:text-white md:white:hover:text-green-500 white:hover:bg-gray-700 white:hover:text-white md:white:hover:bg-transparent">تواصل
+                        class=" mt-3 rtl block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 white:text-white md:white:hover:text-green-500 white:hover:bg-gray-700 white:hover:text-white md:white:hover:bg-transparent">تواصل
                             معنا</a>
                     </li>
                     <li>
                         <a href="#"
                             class=" mt-3 m rtl block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 white:text-white md:white:hover:text-green-500 white:hover:bg-gray-700 white:hover:text-white md:white:hover:bg-transparent">اكتشف</a>
                     </li>
-                    <ul class="rtl mt-2 flex">
+                    <ul class="rtl  flex">
                         <li>
                             <button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-2 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">انشاء حساب</button>
                            

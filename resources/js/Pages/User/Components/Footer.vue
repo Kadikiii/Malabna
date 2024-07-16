@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-white dark:bg-white-900">
+    <footer class="bg-white dark:bg-white-900 font-cairo">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between rtl">
               <div class="mb-6 md:mb-0">
@@ -41,8 +41,8 @@
               </div>
               <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                   <div class="rtl">
-                      <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-dark">مصادر</h2>
-                      <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                      <h2 class="mb-6 text-gray-900 uppercase dark:text-dark text-lg font-cairo">مصادر</h2>
+                      <ul class="text-gray-500 dark:text-gray-400 ">
                           <li class="mb-4">
                               <a href="" class="hover:underline">شروط الخدمة</a>
                           </li>
@@ -53,7 +53,7 @@
                   </div>
                   
                   <div class="rtl">
-                      <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-dark">روابط</h2>
+                      <h2 class="mb-6 text-lg font-cairo text-gray-900 uppercase dark:text-dark">روابط</h2>
                       <ul class="text-gray-500 dark:text-gray-400 font-medium">
                           <li class="mb-4">
                               <a href="#" class="hover:underline">ملاعب</a>

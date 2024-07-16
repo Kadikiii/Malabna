@@ -20,8 +20,8 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/' , [UserController::class , 'index'])->name('user.home');
-
+Route::get('/' , [UserController::class , 'index'])->name('user.index');
+Route::get('/home' , [UserController::class , 'home'])->name('user.home');
 
 //User routes
 
@@ -51,6 +51,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     //Courts Routes
     Route::get('/courts', [CourtController::class, 'index'])->name('admin.courts');
     Route::post('/courts/store', [CourtController::class, 'store'])->name('admin.courts.store');
+    Route::put('/courts/update/{id}' , [CourtController::class , 'update'])->name('admin.courts.update');
+    Route::delete('/courts/image/{id}', [CourtController::class, 'deleteImage'])->name('admin.image.delete');
+    Route::delete('/courts/{id}', [CourtController::class, 'destroy'])->name('admin.courts.destroy');
 });
 //end admin routes
 
