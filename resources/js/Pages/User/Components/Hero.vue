@@ -3,9 +3,15 @@ import { router, usePage } from '@inertiajs/vue3'
 import { ref } from 'vue';
 import Swal from'sweetalert2';
 
-defineProps({
-  courts: Array
-});
+const courts = usePage().props.courts;
+//court data
+const id = ref('')
+const name = ref('')
+const description = ref('')
+const address = ref('')
+const price_per_hour = ref('')
+const court_images = ref([])
+//end 
 
 </script>
 <script>
@@ -3386,7 +3392,7 @@ export default {
         </h2>
 
           <div
-            class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+            class="mt-6 mr-6 ml-9 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
           >
             <div v-for="court in courts" :key="court.id" class="group relative">
               <div
@@ -3397,9 +3403,9 @@ export default {
                   class="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>
-              <div class="mt-4 flex justify-between">
+              <div class=" font-cairo mt-4 flex justify-between">
                 <div>
-                  <h3 class="text-sm text-gray-700">
+                  <h3 class="font-cairo text-sm text-gray-700">
                     <a href="">
                       <span aria-hidden="true" class="absolute inset-0" />
                       {{ court.name }}
@@ -3409,6 +3415,10 @@ export default {
                 </div>
                 <p class="text-sm font-medium text-gray-900">{{ court.price_per_hour }}</p>
               </div>
+              <div class="flex items-center justify-between">
+                <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
+                <a href="#" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-cairo rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">التفاصيل</a>
+            </div>
             </div>
           </div>
         </div>
