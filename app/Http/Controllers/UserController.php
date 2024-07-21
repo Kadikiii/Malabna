@@ -17,4 +17,12 @@ class UserController extends Controller
             'phpVersion' => PHP_VERSION,
         ]);
     }
+
+    public function contact() {
+        return inertia::render('User/Components/ContactForm');
+    }
+
+    public function home(){
+        return inertia::render('User/home');
+    }
 }
