@@ -1,9 +1,4 @@
-<script setup>
-defineProps ({
-  courts:Array
-})
 
-</script>
 <style>
 .rtl {
   direction: rtl;
@@ -2270,12 +2265,4 @@ defineProps ({
       </div>
     </div>
   </section>
-
- 
-
- 
-
-
-
-
 </template>
