@@ -10,6 +10,7 @@ class Court extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'name',
         'description',
         'address',

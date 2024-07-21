@@ -1,5 +1,6 @@
 <script setup>
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import { Link } from '@inertiajs/vue3';
 </script>
 <template>
     <footer class="bg-white dark:bg-white-900 font-cairo">
@@ -15,7 +16,7 @@ import ApplicationLogo from '@/Components/ApplicationLogo.vue';
                       <h2 class="mb-6 text-gray-900 uppercase dark:text-dark text-lg font-cairo">مصادر</h2>
                       <ul class="text-gray-500 dark:text-gray-400 ">
                           <li class="mb-4">
-                              <a href="" class="hover:underline">شروط الخدمة</a>
+                              <Link :href="route('user.terms')" class="hover:underline">شروط الخدمة</Link>
                           </li>
                           <li>
                               <a href="https://tailwindcss.com/" class="hover:underline">سياسة الخصوصية</a>
@@ -30,7 +31,7 @@ import ApplicationLogo from '@/Components/ApplicationLogo.vue';
                               <a href="#" class="hover:underline">ملاعب</a>
                           </li>
                           <li>
-                              <a href="#" class="hover:underline">الصفحة الرئيسية</a>
+                              <Link :href="route('user.home')" class="hover:underline">الصفحة الرئيسية</Link>
                           </li>
                       </ul>
                   </div>
