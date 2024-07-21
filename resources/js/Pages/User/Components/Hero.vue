@@ -3396,21 +3396,7 @@ export default {
                 الأكثر حجزا
             </h2>
                 <div v-for="court in courts" :key="court.id" class="ml-12 w-full max-w-sm bg-gray-100 border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
-                  <img class="p-8 rounded-t-lg" src="https://sportconsultants.co.uk/uploads/slider/18_Rhino_turf_Completed_day_(3).JPG" alt="court image" />
-                  <div class="px-5 pb-5 rtl">
-                    <a href="#">
-                      <h5 class="rtl text-xl font-cairo tracking-tight text-dark-900 dark:text-dark">{{court.name}}</h5>
-                    </a>
-                    <div class="flex items-center mt-2.5 mb-5 rtl">
-                      <div class="flex items-center space-x-1 rtl:space-x-reverse rtl">
-                      </div>
-                      <span class="bg-green-100 text-green-800 text-xs font-cairo px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-800 ms-3">{{court.description}}</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <a href="#" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-cairo rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">حجز الملعب</a>
-                      <span class="text-3xl font-bold text-gray-900 dark:text-dark mr-9 rtl">LYD {{court.price_per_hour}}</span>
-                    </div>
-                  </div>
+                  
                 </div>
 
                 
