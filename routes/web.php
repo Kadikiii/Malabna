@@ -20,15 +20,12 @@ use App\Http\Controllers\UserController;
 |
 */
 
-<<<<<<< HEAD
+
 Route::get('/' , [UserController::class , 'index'])->name('user.home');
 Route::get('/contact', [UserController::class , 'contact'])->name('user.contact');
 Route::get('/home' , [UserController::class , 'home'])->name('user.home');
 
-=======
-Route::get('/' , [UserController::class , 'index'])->name('user.index');
-Route::get('/home' , [UserController::class , 'home'])->name('user.home');
->>>>>>> 3d1a59e0c2ac81c038b74251df6fdaa1168c4aef
+
 
 //User routes
 
