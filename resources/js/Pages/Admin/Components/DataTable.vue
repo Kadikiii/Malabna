@@ -103,9 +103,11 @@ const openEditModal = (court) => {
 }
 
 
+
+
 </script>
 <template>
-    <section class="bg-dark-50 dark:bg-dark-900 p-3 sm:p-5">
+    <section class="bg-dark-50 dark:bg-dark-900 p-3 sm:p-5 font-cairo">
         <!-- Dialog for adding court or edit -->
         <el-dialog v-model="dialogVisible" :title="editMode ? 'Edit Court' : 'Add Court'" width="1000"
             :before-close="handleClose">

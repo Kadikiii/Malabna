@@ -8,13 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class CourtImage extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'court_id',
-        'image',
-    ];
-    
-    public function court()
+        'image',];
+    function Court()
     {
         return $this->belongsTo(Court::class);
     }
