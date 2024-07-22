@@ -15,10 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('phone_number', 10)
-            ->unique()
-            ->check('phone LIKE \'09%\' AND LENGTH(phone) = 10')
-            ->index();
+            $table->string('phone_number', 10)->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

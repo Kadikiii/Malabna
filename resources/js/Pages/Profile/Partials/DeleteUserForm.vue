@@ -36,40 +36,46 @@ const closeModal = () => {
     form.reset();
 };
 </script>
-
+<style>
+.font-cairo {
+  font-family: "Cairo", sans-serif;
+}
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+</style>
 <template>
-    <section class="space-y-6">
+    <section class="space-y-6 font-cairo rtl">
         <header>
-            <h2 class="text-lg font-medium text-gray-900">Delete Account</h2>
+            <h2 class="font-cairo text-lg font-medium text-gray-900">حذف الحساب</h2>
 
             <p class="mt-1 text-sm text-gray-600">
-                Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting
-                your account, please download any data or information that you wish to retain.
+                بمجرد حذف حسابك، سيتم حذف جميع موارده وبياناته نهائيًا. قبل الحذف
+                حسابك، يرجى تنزيل أي بيانات أو معلومات ترغب في الاحتفاظ بها.
             </p>
         </header>
 
-        <DangerButton @click="confirmUserDeletion">Delete Account</DangerButton>
+        <DangerButton @click="confirmUserDeletion">حذف الحساب</DangerButton>
 
         <Modal :show="confirmingUserDeletion" @close="closeModal">
             <div class="p-6">
-                <h2 class="text-lg font-medium text-gray-900">
-                    Are you sure you want to delete your account?
-                </h2>
+                <h2 class="text-lg font-cairo rtl font-medium text-gray-900">
+                    هل انت متأكد انك تريد حذف حسابك؟</h2>
 
-                <p class="mt-1 text-sm text-gray-600">
-                    Once your account is deleted, all of its resources and data will be permanently deleted. Please
-                    enter your password to confirm you would like to permanently delete your account.
-                </p>
+                <p class="mt-1 font-cairo rtl text-sm text-gray-600">
+                    بمجرد حذف حسابك، سيتم حذف جميع موارده وبياناته نهائيًا. لو سمحت
+                    أدخل كلمة المرور الخاصة بك لتأكيد رغبتك في حذف حسابك نهائيًا.</p>
 
-                <div class="mt-6">
-                    <InputLabel for="password" value="Password" class="sr-only" />
+                <div class="mt-6 rtl">
+                    <InputLabel for="password" value="Password" class="sr-only font-cairo rtl" />
 
                     <TextInput
                         id="password"
                         ref="passwordInput"
                         v-model="form.password"
                         type="password"
-                        class="mt-1 block w-3/4"
+                        class="mt-1 block w-3/4 font-cairo rtl"
                         placeholder="Password"
                         @keyup.enter="deleteUser"
                     />
@@ -77,8 +83,8 @@ const closeModal = () => {
                     <InputError :message="form.errors.password" class="mt-2" />
                 </div>
 
-                <div class="mt-6 flex justify-end">
-                    <SecondaryButton @click="closeModal"> Cancel </SecondaryButton>
+                <div class="mt-6 flex justify-end font-cairo ">
+                    <SecondaryButton @click="closeModal"> إلغاء</SecondaryButton>
 
                     <DangerButton
                         class="ms-3"
@@ -86,7 +92,7 @@ const closeModal = () => {
                         :disabled="form.processing"
                         @click="deleteUser"
                     >
-                        Delete Account
+                    حذف الحساب
                     </DangerButton>
                 </div>
             </div>

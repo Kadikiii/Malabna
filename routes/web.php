@@ -21,7 +21,7 @@ use App\Http\Controllers\UserController;
 */
 
 
-Route::get('/' , [UserController::class , 'index'])->name('user.home');
+Route::get('/' , [UserController::class , 'index'])->name('user.index');
 Route::get('/contact', [UserController::class , 'contact'])->name('user.contact');
 Route::get('/home' , [UserController::class , 'home'])->name('user.home');
 Route::get('/about' , [UserController::class , 'about'])->name('user.about');

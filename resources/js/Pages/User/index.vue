@@ -45,7 +45,7 @@ defineProps ({
                           </h3>
                           <p class="mt-1 text-sm text-gray-500">{{ court.description }}</p>
                         </div>
-                        <p class="text-xl font-medium text-gray-900"><span class="text-lime-700 text-xl">LYD</span> ( للساعه ) {{ court.price_per_hour }}</p>
+                        <p class="text-xl font-medium text-gray-900"><span class="text-lime-700 text-base"> LYD ( للساعه )  </span>{{ court.price_per_hour }}</p>
                       </div>
                     </div>
                   </div>
