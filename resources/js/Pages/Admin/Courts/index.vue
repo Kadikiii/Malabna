@@ -1,12 +1,12 @@
 <script setup>
-import DataTable from '../Components/DataTable.vue';
+import DataTableCourt from  '../Components/DataTableCourt.vue';
 import AdminLayout from '../Components/AdminLayout.vue';
 </script>
 
 <template>
     <AdminLayout>
         <main class="p-4 md:ml-64 h-auto pt-20">
-            <DataTable></DataTable>
+            <DataTableCourt></DataTableCourt>
         </main>
     </AdminLayout>
 </template>

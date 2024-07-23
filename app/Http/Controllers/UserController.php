@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $courts = Court::with('court_images')->limit(8)->get();
+        $courts = Court::with('court_images')->limit(4)->get();
          //dd($courts);
         return Inertia::render('User/index',  [
             'courts' => $courts,

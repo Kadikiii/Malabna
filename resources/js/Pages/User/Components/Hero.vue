@@ -1,3 +1,7 @@
+<script setup>
+import { Link } from '@inertiajs/vue3';
+</script>
+
 
 <style>
 .rtl {
@@ -2257,10 +2261,10 @@
         <p class="mt-6 mb-8 text-xl sm:mb-6">تحدي أصحابك و العب كورة على أقرب ملعب لك.</p>
         <div
           class="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start rtl">
-          <button rel="noopener noreferrer" href="#"
+          <Link rel="noopener noreferrer" :href="route('courts.index')"
             class="font-cairo text-white bg-gradient-to-br from-green-700 to-green-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 px-8 py-3 text-lg font-semibold bg-white text-dark rounded-3xl hover:bg-gray-100">
             البحث عن ملعب
-          </button>
+      </Link>
         </div>
       </div>
     </div>

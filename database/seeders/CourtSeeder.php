@@ -34,5 +34,54 @@ class CourtSeeder extends Seeder
             'price_per_hour' => 70.0,
             'image' => '',
         ]);
+        Court::create([
+            'name' => 'ملعب فينيسيا',
+            'description' => 'شارع حلواني الفايدي',
+            'address' => 'فينيسيا',
+            'price_per_hour' => 70.0,
+            'image' => '',
+        ]);
+        Court::create([
+            'name' => 'ملعب فينيسيا',
+            'description' => 'شارع حلواني الفايدي',
+            'address' => 'فينيسيا',
+            'price_per_hour' => 70.0,
+            'image' => '',
+        ]);
+        Court::create([
+            'name' => 'ملعب فينيسيا',
+            'description' => 'شارع حلواني الفايدي',
+            'address' => 'فينيسيا',
+            'price_per_hour' => 70.0,
+            'image' => '',
+        ]);
+        Court::create([
+            'name' => 'ملعب فينيسيا',
+            'description' => 'شارع حلواني الفايدي',
+            'address' => 'فينيسيا',
+            'price_per_hour' => 70.0,
+            'image' => '',
+        ]);
+        Court::create([
+            'name' => 'ملعب فينيسيا',
+            'description' => 'شارع حلواني الفايدي',
+            'address' => 'فينيسيا',
+            'price_per_hour' => 70.0,
+            'image' => '',
+        ]);
+        Court::create([
+            'name' => 'ملعب فينيسيا',
+            'description' => 'شارع حلواني الفايدي',
+            'address' => 'فينيسيا',
+            'price_per_hour' => 70.0,
+            'image' => '',
+        ]);
+        Court::create([
+            'name' => 'ملعب فينيسيا',
+            'description' => 'شارع حلواني الفايدي',
+            'address' => 'فينيسيا',
+            'price_per_hour' => 70.0,
+            'image' => '',
+        ]);
     }
 }

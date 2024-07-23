@@ -27,7 +27,7 @@ onMounted(() => {
 <template>
     <nav class="font-cairo border-white-200 bg-white-50 white:bg-white-800 white:border-white-700">
         <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-1">
-            <Link :href="route('user.home')" method="get" as="button"
+            <Link :href="route('user.index')" method="get" as="button"
                 class="group-hover:text-gray-900 flex items-center justify-between mr-4">
             <ApplicationLogo></ApplicationLogo>
             </Link>
@@ -45,8 +45,9 @@ onMounted(() => {
                 <ul
                     class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent white:bg-gray-800 md:white:bg-transparent white:border-gray-700">
                     <li>
-                        <Link :href="route('user.home')"
-                            class=" mt-3  rtl block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 white:text-white md:white:hover:text-green-500 white:hover:bg-gray-700 white:hover:text-white md:white:hover:bg-transparent"
+                        <Link :href="route('courts.index')"
+                            class=" mt-3
+                              rtl block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 white:text-white md:white:hover:text-green-500 white:hover:bg-gray-700 white:hover:text-white md:white:hover:bg-transparent"
                             aria-current="page">الصفحة الرئيسية</Link>
                     </li>
                     <li>
@@ -95,7 +96,7 @@ onMounted(() => {
                                 </Link>
                                 
 
-                                <div v-else class="ml-9 mt-3">
+                                <div v-else class="ml-9 mt-1">
                                     <Link v-if="canRegister " :href="route('register')" type="button"
                                         class="text-white bg-gradient-to-br from-purple-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
                                     انشاء حساب</Link>

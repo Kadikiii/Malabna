@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CourtController;
+use App\Http\Controllers\CourtListController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -63,5 +64,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::delete('/courts/{id}', [CourtController::class, 'destroy'])->name('admin.courts.destroy');
 });
 //end admin routes
+
+//courts list routes
+Route::prefix('courts')->controller(CourtListController::class)->group(function () {
+    Route::get('/', 'index')->name('courts.index');
+
+});
 
 require __DIR__ . '/auth.php';
