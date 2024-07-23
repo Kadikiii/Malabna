@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserListController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -62,6 +63,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::put('/courts/update/{id}' , [CourtController::class , 'update'])->name('admin.courts.update');
     Route::delete('/courts/image/{id}', [CourtController::class, 'deleteImage'])->name('admin.image.delete');
     Route::delete('/courts/{id}', [CourtController::class, 'destroy'])->name('admin.courts.destroy');
+
+    //User Routes
+    Route::get('/users', [UserListController::class, 'index'])->name('admin.users');
+    Route::post('/users/store', [UserListController::class, 'store'])->name('admin.users.store');
+    Route::put('/users/update/{id}' , [UserListController::class , 'update'])->name('admin.users.update');
+    Route::delete('/users/{id}', [UserListController::class, 'destroy'])->name('admin.users.destroy');
 });
 //end admin routes
 
