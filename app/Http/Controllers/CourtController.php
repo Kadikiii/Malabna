@@ -19,6 +19,7 @@ class CourtController extends Controller
     public function store(Request $request)
     {
         $court = new Court;
+        $court->id = $request->id;
         $court->name = $request->name;
         $court->description = $request->description;
         $court->address = $request->address;

@@ -18,7 +18,7 @@ return new class extends Migration
             //Foreign key
             $table
                 ->foreign('court_id')
-                ->references('court_id')
+                ->references('id')
                 ->on('courts')
                 ->onDelete('cascade');
             $table->timestamps();

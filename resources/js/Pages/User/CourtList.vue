@@ -5,45 +5,7 @@ import CourtsView from './Components/CourtsView.vue';
 import { router, useForm } from '@inertiajs/vue3';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import { ref } from 'vue'
-import {
-  Dialog,
-  DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-  TransitionChild,
-  TransitionRoot,
-} from '@headlessui/vue'
-import { XMarkIcon } from '@heroicons/vue/24/outline'
-import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/vue/20/solid'
 
-const sortOptions = [
-  { name: 'Most Popular', href: '#', current: true },
-  { name: 'Best Rating', href: '#', current: false },
-  { name: 'Newest', href: '#', current: false },
-  { name: 'Price: Low to High', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false },
-]
-
-const filters = [
-  {
-    id: 'category',
-    name: 'Category',
-    options: [
-      { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-      { value: 'sale', label: 'Sale', checked: false },
-      { value: 'travel', label: 'Travel', checked: true },
-      { value: 'organization', label: 'Organization', checked: false },
-      { value: 'accessories', label: 'Accessories', checked: false },
-    ],
-  },
-  
-]
-const mobileFiltersOpen = ref(false)
 
 const props = defineProps ({
     courts: Array
@@ -90,7 +52,7 @@ function updateFilteredProducts() {
     <div>
       <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class=" border-b border-gray-200 pb-6 pt-24">
-          <h1 class="text-4xl mb-7 font-bold tracking-tight text-green-900">الملاعب</h1>
+          <h1 class="text-4xl mb-7 font-cairo tracking-tight text-green-900">الملاعب</h1>
           <div class="flex items-center">
             <section aria-labelledby="products-heading" class="pb-24 pt-6">
                 <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-1">

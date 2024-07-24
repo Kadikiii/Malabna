@@ -20,4 +20,10 @@ class CourtListController extends Controller
             ]
         );
     }
+    public function show(Court $court)
+    {
+        return inertia::render('User/Court', [
+            'court' => $court->load('court_images'),
+        ]);
+    }
 }

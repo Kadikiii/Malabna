@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->id('reservation_id');
+            $table->id();
             $table->foreignIdFor(User::class,'created_by')->nullable();
             $table->foreignIdFor(Court::class,'court')->nullable();
             $table->date('date');

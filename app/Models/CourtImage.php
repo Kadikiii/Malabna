@@ -10,9 +10,16 @@ class CourtImage extends Model
     use HasFactory;
     protected $fillable = [
         'court_id',
-        'image',];
+        'image',
+    ];
     function Court()
     {
         return $this->belongsTo(Court::class);
+    }
+
+    public function index()
+    {
+        $images = CourtImage::all();
+        return inertia('CourtImages/Index', ['images' => $images]);
     }
 }

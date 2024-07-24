@@ -32,7 +32,7 @@ import Footer from './Footer.vue';
                 <img class="mt-4 w-full lg:mt-10 rounded-lg" src="https://arturf.com/wp-content/uploads/2018/12/Indoor-football-grass-field-2.jpg" alt="office content 2">
             </div>
             <Link :href="route('user.contact')" rel="noopener noreferrer"
-            class="font-cairo text-white bg-gradient-to-br text-center from-green-700 to-green-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 px-8 py-3 text-lg font-semibold bg-white text-dark rounded-3xl hover:bg-gray-100">
+            class="font-cairo text-white bg-gradient-to-br text-center from-green-700 to-green-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 px-8 py-3 text-lg  bg-white text-dark rounded-3xl hover:bg-gray-100">
             تواصل معنا</Link>
         </div>
 
