@@ -77,7 +77,6 @@ const resetFormData = () => {
     description.value = '';
     address.value = '';
     price_per_hour.value = '';
-    court_images.value = [];
     dialogImageUrl.value = '';
 }
 
@@ -95,16 +94,11 @@ const openEditModal = (court) => {
     description.value = court.description
     address.value = court.address
     price_per_hour.value = court.price_per_hour
-    courtImages.value = court.court_images
 
     editMode.value = true
     isAddCourt.value = false
     dialogVisible.value = true
 }
-
-
-
-
 </script>
 <template>
     <section class="bg-dark-50 dark:bg-dark-900 p-3 sm:p-5 font-cairo">

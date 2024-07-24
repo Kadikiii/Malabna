@@ -17,40 +17,79 @@ defineProps({
 const user = usePage().props.auth.user;
 
 const form = useForm({
-    name: user.name,
+    first_name: user.first_name,
+    last_name: user.last_name,
+    phone_number: user.phone_number,
     email: user.email,
 });
 </script>
-
+<style>
+.font-cairo {
+  font-family: "Cairo", sans-serif;
+}
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+</style>
 <template>
-    <section>
+    <section class="font-cairo rtl">
         <header>
-            <h2 class="text-lg font-medium text-gray-900">Profile Information</h2>
+            <h2 class="text-lg font-cairo  text-gray-900">معلومات الملف الشخصي</h2>
 
             <p class="mt-1 text-sm text-gray-600">
-                Update your account's profile information and email address.
-            </p>
+                قم بتحديث معلومات الملف الشخصي لحسابك وعنوان البريد الإلكتروني.</p>
         </header>
 
-        <form @submit.prevent="form.patch(route('profile.update'))" class="mt-6 space-y-6">
+        <form @submit.prevent="form.patch(route('profile.update'))" class="mt-6 space-y-6 rtl">
             <div>
-                <InputLabel for="name" value="Name" />
+                <InputLabel class="font-cairo rtl" for="first_name" value="الاسم الاول" />
 
                 <TextInput
-                    id="name"
+                    id="first_name"
                     type="text"
                     class="mt-1 block w-full"
-                    v-model="form.name"
+                    v-model="form.first_name"
                     required
                     autofocus
-                    autocomplete="name"
+                    autocomplete="first_name"
                 />
 
-                <InputError class="mt-2" :message="form.errors.name" />
+                <InputError class="mt-2" :message="form.errors.first_name" />
             </div>
 
-            <div>
-                <InputLabel for="email" value="Email" />
+            <div class="mt-4">
+                <InputLabel class="font-cairo rtl" for="last_name" value="اسم العائلة" />
+
+                <TextInput
+                    id="last_name"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.last_name"
+                    required
+                    autocomplete="last_name"
+                />
+
+                <InputError class="mt-2" :message="form.errors.last_name" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel class="font-cairo rtl" for="phone_number" value="رقم الهاتف" />
+
+                <TextInput
+                    id="phone_number"
+                    type="tel"
+                    class="mt-1 block w-full rtl"
+                    v-model="form.phone_number"
+                    required
+                    autocomplete="phone_number"
+                />
+
+                <InputError class="mt-2" :message="form.errors.phone_number" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel class="font-cairo rtl" for="email" value="البريد الالكتروني" />
 
                 <TextInput
                     id="email"
@@ -94,7 +133,7 @@ const form = useForm({
                     leave-active-class="transition ease-in-out"
                     leave-to-class="opacity-0"
                 >
-                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">Saved.</p>
+                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">تم تحديث الملف الشخصي</p>
                 </Transition>
             </div>
         </form>

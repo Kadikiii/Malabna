@@ -7,7 +7,9 @@ import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
-    name: '',
+    first_name: '',
+    last_name: '',
+    phone_number: '',
     email: '',
     password: '',
     password_confirmation: '',
@@ -19,6 +21,16 @@ const submit = () => {
     });
 };
 </script>
+<style>
+.font-cairo {
+  font-family: "Cairo", sans-serif;
+}
+
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+</style>
 
 <template>
     <GuestLayout>
@@ -26,23 +38,53 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="Name" />
+                <InputLabel class="font-cairo rtl" for="first_name" value="الاسم الاول" />
 
                 <TextInput
-                    id="name"
+                    id="first_name"
                     type="text"
                     class="mt-1 block w-full"
-                    v-model="form.name"
+                    v-model="form.first_name"
                     required
                     autofocus
-                    autocomplete="name"
+                    autocomplete="first_name"
                 />
 
-                <InputError class="mt-2" :message="form.errors.name" />
+                <InputError class="mt-2" :message="form.errors.first_name" />
             </div>
 
             <div class="mt-4">
-                <InputLabel for="email" value="Email" />
+                <InputLabel class="font-cairo rtl" for="last_name" value="اسم العائلة" />
+
+                <TextInput
+                    id="last_name"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.last_name"
+                    required
+                    autocomplete="last_name"
+                />
+
+                <InputError class="mt-2" :message="form.errors.last_name" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel class="font-cairo rtl" for="phone_number" value="رقم الهاتف" />
+
+                <TextInput
+                    id="phone_number"
+                    type="tel"
+                    class="mt-1 block w-full"
+                    v-model="form.phone_number"
+                    required
+                    autocomplete="phone_number"
+                />
+
+                <InputError class="mt-2" :message="form.errors.phone_number" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel class="font-cairo rtl" for="email" value="البريد الالكتروني" />
 
                 <TextInput
                     id="email"
@@ -57,7 +99,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <InputLabel class="font-cairo rtl" for="password" value="الرقم السري" />
 
                 <TextInput
                     id="password"
@@ -72,7 +114,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
+                <InputLabel class="font-cairo rtl" for="password_confirmation" value="التأكد من الرقم السري" />
 
                 <TextInput
                     id="password_confirmation"
@@ -89,13 +131,13 @@ const submit = () => {
             <div class="flex items-center justify-end mt-4">
                 <Link
                     :href="route('login')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="font-cairo rtl underline text-sm text-green-600 hover:text-green-900 rounded-md "
                 >
-                    Already registered?
+                    لديك حساب بالفعل؟
                 </Link>
 
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
+                <PrimaryButton class="ms-4 font-cairo " :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    انشاء حساب
                 </PrimaryButton>
             </div>
         </form>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Court;
 use App\Models\CourtImage;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -44,7 +45,8 @@ class CourtController extends Controller
         return redirect()->route('admin.courts')->with('success', 'Court created successfully.');
     }
 
-    public function deleteImage($id) {
+    public function deleteImage($id)
+    {
         $image = CourtImage::where('id', $id)->delete();
         return redirect()->route('admin.courts')->with('success', 'Image deleted successfully.');
     }
@@ -54,4 +56,6 @@ class CourtController extends Controller
         $court = Court::findOrFail($id)->delete();
         return redirect()->route('admin.courts')->with('success', 'Court deleted successfully.');
     }
+
+    
 }

@@ -64,6 +64,7 @@ import { Link } from "@inertiajs/vue3";
         </li>
         <li>
           <Link
+          :href="route('admin.users')"
             class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg hover:bg-gray-100 group"
           >
             <svg

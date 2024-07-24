@@ -28,7 +28,15 @@ const submit = () => {
     });
 };
 </script>
-
+<style>
+.font-cairo {
+  font-family: "Cairo", sans-serif;
+}
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+</style>
 <template>
     <GuestLayout>
         <Head title="Log in" />
@@ -37,14 +45,14 @@ const submit = () => {
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit">
+        <form class="rtl font-cairo " @submit.prevent="submit">
             <div>
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="email" value="البريد الالكتروني" />
 
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full "
                     v-model="form.email"
                     required
                     autofocus
@@ -55,7 +63,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <InputLabel for="password" value="كلمة المرور" />
 
                 <TextInput
                     id="password"
@@ -72,21 +80,30 @@ const submit = () => {
             <div class="block mt-4">
                 <label class="flex items-center">
                     <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ms-2 text-sm text-gray-600">Remember me</span>
+                    <span class="ms-2 mb-2 text-sm text-gray-600">تذكرني</span>
                 </label>
+
+                <Link
+                    :href="route('register')"
+                    class="mt-4 mb-4 font-cairo rtl underline text-base text-green-600 hover:text-green-900 rounded-md focus:outline-none "
+                >
+                    ليس لديك حساب؟
+                </Link>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center  mt-4 rtl">
+
+                
                 <Link
                     v-if="canResetPassword"
                     :href="route('password.request')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="rtl underline text-sm text-gray-600 hover:text-gray-900 rounded-md "
                 >
-                    Forgot your password?
+                    نسيت كلمة المرور؟
                 </Link>
 
                 <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
+                    تسجيل الدخول
                 </PrimaryButton>
             </div>
         </form>
