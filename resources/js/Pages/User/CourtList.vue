@@ -100,7 +100,7 @@ function updateFilteredProducts() {
                             <div class="basis-1/3">
                                 <label for="filters-price-from"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-dark">
-                                    من
+                                    السعر من
                                 </label>
     
                                 <input type="number" id="filters-price-from" placeholder="Min price"
