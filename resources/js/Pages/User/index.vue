@@ -15,6 +15,11 @@ defineProps ({
 
 
 </script>
+<style>
+.font-cairo {
+  font-family: "Cairo", sans-serif;
+}
+</style>
 <template>
     <Layout>
       <section class="dark:bg-white-300 dark:text-gray-800 rtl">
@@ -51,7 +56,7 @@ defineProps ({
                   </div>
                   <div class="flex justify-center mt-9">
                     <Link :href="route('courts.index')" rel="noopener noreferrer"
-                    class="font-cairo text-white bg-gradient-to-br from-green-700 to-lime-400 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 px-8 py-3 text-lg font-semibold bg-white text-dark rounded-3xl hover:bg-gray-100">عرض
+                    class="font-cairo text-white bg-gradient-to-br from-green-700 to-lime-400 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 px-8 py-3 text-lg bg-white text-dark rounded-3xl hover:bg-gray-100">عرض
                     المزيد</Link>
                   </div>
                 </div>
@@ -73,7 +78,7 @@ defineProps ({
               الحاجة إلى إجراء مكالمات هاتفية تستغرق وقتًا طويلاً أو زيارة للملعب.
             </p>
             <Link :href="route('user.about')" rel="noopener noreferrer"
-              class="font-cairo text-white bg-gradient-to-br from-green-700 to-green-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 px-8 py-3 text-lg font-semibold bg-white text-dark rounded-3xl hover:bg-gray-100">
+              class="font-cairo text-white bg-gradient-to-br from-green-700 to-green-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 px-8 py-3 text-lg  bg-white text-dark rounded-3xl hover:bg-gray-100">
               المزيد</Link>
           </div>
           <div>

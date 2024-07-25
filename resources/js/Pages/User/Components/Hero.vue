@@ -1,4 +1,23 @@
 <script setup>
+import { router, usePage } from '@inertiajs/vue3'
+import { ref } from 'vue';
+import Swal from'sweetalert2';
+
+const courts = usePage().props.courts;
+//court data
+const id = ref('')
+const name = ref('')
+const description = ref('')
+const address = ref('')
+const price_per_hour = ref('')
+const court_images = ref([])
+//end 
+
+</script>
+<script>
+export default {
+  name: "RightToLeftLayout",
+};
 import { Link } from '@inertiajs/vue3';
 </script>
 
@@ -2262,7 +2281,7 @@ import { Link } from '@inertiajs/vue3';
         <div
           class="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start rtl">
           <Link rel="noopener noreferrer" :href="route('courts.index')"
-            class="font-cairo text-white bg-gradient-to-br from-green-700 to-green-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 px-8 py-3 text-lg font-semibold bg-white text-dark rounded-3xl hover:bg-gray-100">
+            class="font-cairo text-white bg-gradient-to-br from-green-700 to-green-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 px-8 py-3 text-lg  bg-white text-dark rounded-3xl hover:bg-gray-100">
             البحث عن ملعب
       </Link>
         </div>

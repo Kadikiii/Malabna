@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
+import { Link } from '@inertiajs/vue3';
 
 
 defineProps ({
@@ -22,10 +23,10 @@ defineProps ({
           <div class="mt-4 flex justify-between">
             <div>
               <h3 class="text-sm text-gray-700">
-                <a href="#">
+                <Link :href="route('courts.show', court.id)" class="font-cairo">
                   <span aria-hidden="true" class="absolute inset-0" />
                   {{ court.name }}
-                </a>
+                </Link>
               </h3>
               <p class="mt-1 text-sm text-gray-500">{{ court.address }}</p>
             </div>

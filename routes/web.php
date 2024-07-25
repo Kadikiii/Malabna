@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\CourtController;
 use App\Http\Controllers\CourtListController;
 use App\Http\Controllers\UserController;
@@ -42,6 +43,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //checkout routes
+    Route::prefix('checkout')->controller(CheckOutController::class)->group(function () {
+        Route::post('reservation', 'store')->name('checkout.store');
+    });
 });
 
 //end user routes
@@ -75,7 +81,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 //courts list routes
 Route::prefix('courts')->controller(CourtListController::class)->group(function () {
     Route::get('/', 'index')->name('courts.index');
-
+    Route::get('/{court}', 'show')->name('courts.show');
 });
 
 require __DIR__ . '/auth.php';

@@ -24,6 +24,7 @@
         "@fontsource/open-sans": "^5.0.28",
         "@headlessui/vue": "^1.7.22",
         "@heroicons/vue": "^2.1.4",
+        "@vuepic/vue-datepicker": "^9.0.1",
         "element-plus": "^2.7.6",
         "flowbite": "^2.4.1",
         "sweetalert2": "^11.6.13",
