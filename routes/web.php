@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
 
     //checkout routes
     Route::prefix('checkout')->controller(CheckOutController::class)->group(function () {
-        Route::post('reservation', 'store')->name('checkout.store');
+        Route::get('reservation', 'store')->name('checkout.store');
     });
 });
 
@@ -81,6 +81,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 //courts list routes
 Route::prefix('courts')->controller(CourtListController::class)->group(function () {
     Route::get('/', 'index')->name('courts.index');
+    Route::post('/', [CourtListController::class, 'search'])->name('search.courts');
     Route::get('/{court}', 'show')->name('courts.show');
 });
 

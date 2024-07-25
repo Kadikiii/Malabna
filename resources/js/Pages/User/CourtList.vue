@@ -7,12 +7,13 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import { ref } from 'vue'
 
 
+
 const props = defineProps ({
     courts: Array
 })
 
 const filterPrices = useForm({
-    prices: [0, 150]
+    prices: [0, 100]
 })
 
 const priceFilter = () => {
