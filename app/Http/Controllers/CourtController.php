@@ -46,16 +46,24 @@ class CourtController extends Controller
         return redirect()->route('admin.courts')->with('success', 'Court created successfully.');
     }
 
-    public function deleteImage($id)
+    public function update(Request $request, $id)
     {
-        $image = CourtImage::where('id', $id)->delete();
-        return redirect()->route('admin.courts')->with('success', 'Image deleted successfully.');
+
+        $court = Court::findOrFail($id);
+
+        // dd($court);
+        $court->name = $request->name;
+        $court->price_per_hour = $request->price_per_hour;
+        $court->description = $request->description;
+        $court->address = $request->address;
+        $court->update();
+        return redirect()->route('admin.courts')->with('success', 'court updated successfully.');
     }
 
     public function destroy($id)
     {
         $court = Court::findOrFail($id)->delete();
-        return redirect()->route('admin.courts')->with('success', 'Court deleted successfully.');
+        return redirect()->route('admin.courts')->with('success', 'court deleted successfully.');
     }
 
     

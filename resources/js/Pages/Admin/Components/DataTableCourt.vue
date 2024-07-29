@@ -99,7 +99,79 @@ const openEditModal = (court) => {
     isAddCourt.value = false
     dialogVisible.value = true
 }
+
+//update court method
+const updatecourt = async () => {
+    const formData = new FormData();
+    formData.append('name', name.value);
+    formData.append('description', description.value);
+    formData.append('address', address.value);
+    formData.append('price_per_hour', price_per_hour.value);
+    formData.append('court_images', court_images.value);
+    formData.append("_method", 'PUT');
+    // Append court images to the FormData
+    for (const image of courtImages.value) {
+        formData.append('court_images[]', image.raw);
+    }
+
+    try {
+        await router.post('courts/update/' + id.value, formData, {
+            onSuccess: (page) => {
+                dialogVisible.value = false;
+                resetFormData();
+                Swal.fire({
+                    toast: true,
+                    icon: "success",
+                    position: "top-end",
+                    showConfirmButton: false,
+                    title: page.props.flash.success
+                });
+            }
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+//delete court method 
+const deleteCourt= (court, index) => {
+    Swal.fire({
+        title: 'Are you Sure',
+        text: "This actions cannot undo!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'no',
+        confirmButtonText: 'yes, delete!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            try {
+                router.delete('courts/destroy/' + court.id, {
+                    onSuccess: (page) => {
+                        this.delete(court, index);
+                        Swal.fire({
+                            toast: true,
+                            icon: "success",
+                            position: "top-end",
+                            showConfirmButton: false,
+                            title: page.props.flash.success
+                        });
+                    }
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
+    })
+}
+
 </script>
+<style>
+.font-cairo {
+  font-family: "Cairo", sans-serif;
+}
+</style>
 <template>
     <section class="bg-dark-50 dark:bg-dark-900 p-3 sm:p-5 font-cairo">
         <!-- Dialog for adding court or edit -->
@@ -108,7 +180,7 @@ const openEditModal = (court) => {
             <!-- Form Starts -->
             <section class="bg-dark white:bg-gray-900">
                 <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-                    <form @submit.prevent="addCourt()">
+                    <form @submit.prevent="editMode ? updatecourt() : AddProduct()">
                         <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                             <div class="sm:col-span-2">
                                 <label for="name"
@@ -239,7 +311,7 @@ const openEditModal = (court) => {
                                     <button @click="openEditModal(court)"
                                         class="font-small bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
                                         Edit</button>
-                                    <button
+                                    <button  @click="deleteCourt(court, index)"
                                         class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete
                                     </button>
 

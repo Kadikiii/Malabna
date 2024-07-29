@@ -67,14 +67,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/courts', [CourtController::class, 'index'])->name('admin.courts');
     Route::post('/courts/store', [CourtController::class, 'store'])->name('admin.courts.store');
     Route::put('/courts/update/{id}' , [CourtController::class , 'update'])->name('admin.courts.update');
-    Route::delete('/courts/image/{id}', [CourtController::class, 'deleteImage'])->name('admin.image.delete');
-    Route::delete('/courts/{id}', [CourtController::class, 'destroy'])->name('admin.courts.destroy');
+    Route::delete('/courts/destroy/{id}', [CourtController::class, 'destroy'])->name('admin.courts.destroy');
 
     //User Routes
     Route::get('/users', [UserListController::class, 'index'])->name('admin.users');
     Route::post('/users/store', [UserListController::class, 'store'])->name('admin.users.store');
-    Route::put('/users/update/{id}' , [UserListController::class , 'update'])->name('admin.users.update');
-    Route::delete('/users/{id}', [UserListController::class, 'destroy'])->name('admin.users.destroy');
 });
 //end admin routes
 

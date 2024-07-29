@@ -174,7 +174,6 @@ const openEditModal = (user) => {
                                 <th scope="col" class="px-4 py-3">Last Name</th>
                                 <th scope="col" class="px-4 py-3">email</th>
                                 <th scope="col" class="px-4 py-3">Phone Number</th>
-                                <th scope="col" class="px-4 py-3">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -186,12 +185,7 @@ const openEditModal = (user) => {
                                 <td class="px-4 py-3">{{ user.email }}</td>
                                 <td class="px-4 py-3">{{ user.phone_number }}</td>
                                 <td class="px-4 py-3">
-                                    <button @click="openEditModal(user)"
-                                        class="font-small bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
-                                        Edit</button>
-                                    <button
-                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete
-                                    </button>
+                                   
 
                                 </td>
                             </tr>
